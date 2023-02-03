@@ -6,7 +6,7 @@
 /*   By: moudrib <moudrib@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/03 15:46:40 by moudrib           #+#    #+#             */
-/*   Updated: 2023/02/03 15:47:58 by moudrib          ###   ########.fr       */
+/*   Updated: 2023/02/03 20:40:05 by moudrib          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,11 +58,11 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 	return (dest);
 }
 
-int	ft_atoi(const char *str)
+ssize_t	ft_atoi(const char *str)
 {
-	int	i;
-	int	sign;
-	int	res;
+	ssize_t		i;
+	ssize_t		sign;
+	ssize_t		res;
 
 	i = 0;
 	sign = 1;
@@ -104,3 +104,12 @@ int	ft_isdigit(char *str)
 	}
 	return (0);
 }
+
+// #include <limits.h>
+
+// int main ()
+// {
+// 	printf("%zd\n", ft_atoi("-161611"));
+// 	printf("%zd\n", LONG_MAX);
+
+// }

@@ -6,7 +6,7 @@
 /*   By: moudrib <moudrib@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/02 16:36:05 by moudrib           #+#    #+#             */
-/*   Updated: 2023/02/03 15:39:49 by moudrib          ###   ########.fr       */
+/*   Updated: 2023/02/03 19:15:39 by moudrib          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,12 +18,10 @@
 # include <unistd.h>
 # include <stdio.h>
 
-int		ft_atoi(const char *str);
-int		ft_strcmp(char *s1, char *s2);
+ssize_t	ft_atoi(const char *str);
 void	ft_putstr(char *str);
 void	ft_putchar(char ch);
 int		ft_isdigit(char *str);
-int		ft_count(char *str);
 int		ft_word(char const *s, char c);
 int		ft_lenword(char const *s, char c);
 char	**free_arr(char **str);
