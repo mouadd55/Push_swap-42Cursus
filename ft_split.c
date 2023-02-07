@@ -6,13 +6,13 @@
 /*   By: moudrib <moudrib@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/19 20:26:37 by moudrib           #+#    #+#             */
-/*   Updated: 2023/02/03 12:26:33 by moudrib          ###   ########.fr       */
+/*   Updated: 2023/02/07 12:56:20 by moudrib          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	ft_word(char const *s, char c)
+int	count_words(char const *s, char c)
 {
 	int	i;
 	int	count;
@@ -31,7 +31,7 @@ int	ft_word(char const *s, char c)
 	return (count);
 }
 
-int	ft_lenword(char const *s, char c)
+static int	ft_lenword(char const *s, char c)
 {
 	int	i;
 
@@ -63,7 +63,7 @@ char	**ft_split(char const *s, char c)
 	i = 0;
 	if (s == 0)
 		return (0);
-	str = malloc((ft_word(s, c) + 1) * sizeof(char *));
+	str = malloc((count_words(s, c) + 1) * sizeof(char *));
 	if (str == 0)
 		return (0);
 	while (*s != '\0')

@@ -6,7 +6,7 @@
 /*   By: moudrib <moudrib@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/03 15:46:40 by moudrib           #+#    #+#             */
-/*   Updated: 2023/02/03 20:40:05 by moudrib          ###   ########.fr       */
+/*   Updated: 2023/02/06 13:16:40 by moudrib          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,6 +85,34 @@ ssize_t	ft_atoi(const char *str)
 	return (res * sign);
 }
 
+char	*ft_strjoin(char const *s1, char const *s2)
+{
+	char	*str;
+	int		i;
+	int		j;
+	int		len1;
+	int		len2;
+
+	i = 0;
+	j = 0;
+	if (!s1 || !s2)
+		return (NULL);
+	len1 = ft_strlen(s1);
+	len2 = ft_strlen(s2);
+	str = malloc((len1 + len2 + 1) * sizeof(char));
+	if (!str)
+		return (NULL);
+	while (s1[i])
+	{
+		str[i] = s1[i];
+		i++;
+	}
+	while (s2[j])
+		str[i++] = s2[j++];
+	str[i] = '\0';
+	return (str);
+}
+
 int	ft_isdigit(char *str)
 {
 	int	i;
@@ -94,22 +122,18 @@ int	ft_isdigit(char *str)
 	{
 		i++;
 		if (!str[i])
-			return (1);
+			return (0);
 	}
 	while (str[i])
 	{
 		if (!(str[i] >= '0' && str[i] <= '9'))
-			return (1);
+			return (0);
 		i++;
 	}
-	return (0);
+	return (1);
 }
-
-// #include <limits.h>
 
 // int main ()
 // {
-// 	printf("%zd\n", ft_atoi("-161611"));
-// 	printf("%zd\n", LONG_MAX);
-
+// 	printf("%d", ft_isdigit("--1350"));
 // }

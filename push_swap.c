@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Push_swap.c                                        :+:      :+:    :+:   */
+/*   push_swap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: moudrib <moudrib@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/03 15:30:47 by moudrib           #+#    #+#             */
-/*   Updated: 2023/02/03 20:44:02 by moudrib          ###   ########.fr       */
+/*   Updated: 2023/02/07 18:23:18 by moudrib          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,26 @@
 void	ft_error(void)
 {
 	ft_putstr("\x1B[31mError\x1B[0m");
+	exit(0);
 }
 
-int	main(int ac, char **av)
+void	ft(t_list *list)
+{
+	t_list	*node;
+
+	node = list;
+	printf("----------------------------------\n");
+	printf("|    node  |    data  |    index |\n");
+	printf("----------------------------------\n");
+	while (node)
+	{
+		printf("|%10d|%10d|%10d|\n", 0, node->data, 0);
+		node = node->next;
+	}
+	printf("----------------------------------\n");
+}
+
+void	first_check(char **av, t_list **head)
 {
 	int		i;
 	int		j;
@@ -25,44 +42,29 @@ int	main(int ac, char **av)
 
 	i = 1;
 	j = 0;
-	if (ac >= 1)
+	while (av[i])
 	{
-		while (av[i])
+		arr = ft_split(av[i], ' ');
+		j = 0;
+		while (arr[j])
 		{
-			if (ft_atoi(av[i]) > 2147483647)
-			{
+			if (ft_isdigit(arr[j]))
+				insert_at_end(head, create_node(ft_atoi(arr[j])));
+			else
 				ft_error();
-				return (0);
-			}
-			else if (ft_atoi(av[i]) < -2147483648)
-			{
-				ft_error();
-				return (0);
-			}
-			else if (av[i][0] == '\0')
-			{
-				ft_error();
-				return (0);
-			}
-			else if (ft_word(av[i], ' ') > 1)
-			{
-				arr = ft_split(av[i], ' ');
-				while (j < ft_word(av[i], ' '))
-				{
-					if (ft_isdigit(arr[j]))
-					{
-						ft_error();
-						return (0);
-					}
-					j++;
-				}
-			}
-			else if (ft_isdigit(av[i]))
-			{
-				ft_error();
-				return (0);
-			}
-			i++;
+			j++;
 		}
+		i++;
 	}
+}
+
+int	main(int ac, char **av)
+{
+	t_list	*head;
+
+	head = NULL;
+	if (ac >= 1)
+		first_check(av, &head);
+	ft(head);
+	return (0);
 }
