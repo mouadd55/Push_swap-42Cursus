@@ -5,12 +5,12 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: moudrib <moudrib@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/19 20:26:37 by moudrib           #+#    #+#             */
-/*   Updated: 2023/02/07 12:56:20 by moudrib          ###   ########.fr       */
+/*   Created: 2023/02/08 14:17:54 by moudrib           #+#    #+#             */
+/*   Updated: 2023/02/08 14:27:26 by moudrib          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "Push_swap.h"
 
 int	count_words(char const *s, char c)
 {
@@ -73,7 +73,7 @@ char	**ft_split(char const *s, char c)
 		if (*s != '\0')
 		{
 			str[i] = ft_substr(s, 0, ft_lenword(s, c));
-			if (str[i] == '\0')
+			if (str[i] == 0)
 				return (free_arr(str));
 			i++;
 		}

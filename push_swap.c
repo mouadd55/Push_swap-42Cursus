@@ -6,56 +6,40 @@
 /*   By: moudrib <moudrib@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/03 15:30:47 by moudrib           #+#    #+#             */
-/*   Updated: 2023/02/07 18:23:18 by moudrib          ###   ########.fr       */
+/*   Updated: 2023/02/08 15:45:23 by moudrib          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
-
-void	ft_error(void)
-{
-	ft_putstr("\x1B[31mError\x1B[0m");
-	exit(0);
-}
+#include "Push_swap.h"
 
 void	ft(t_list *list)
 {
 	t_list	*node;
 
 	node = list;
-	printf("----------------------------------\n");
-	printf("|    node  |    data  |    index |\n");
-	printf("----------------------------------\n");
+	printf("-------------------------------------\n");
+	printf("|   node    |   data    |   index   |\n");
+	printf("-------------------------------------\n");
 	while (node)
 	{
-		printf("|%10d|%10d|%10d|\n", 0, node->data, 0);
+		printf("|%11d|%11d|%11d|\n", 0, node->data, 0);
 		node = node->next;
 	}
-	printf("----------------------------------\n");
+	printf("-------------------------------------\n");
 }
 
-void	first_check(char **av, t_list **head)
+int	int_limits(char **av)
 {
-	int		i;
-	int		j;
-	char	**arr;
+	int	i;
 
-	i = 1;
-	j = 0;
+	i = 0;
 	while (av[i])
 	{
-		arr = ft_split(av[i], ' ');
-		j = 0;
-		while (arr[j])
-		{
-			if (ft_isdigit(arr[j]))
-				insert_at_end(head, create_node(ft_atoi(arr[j])));
-			else
-				ft_error();
-			j++;
-		}
-		i++;
+		if (ft_atoi(av[i]) > INT_MAX || ft_atoi(av[i]) < INT_MIN)
+			return (1);
+		i++;		
 	}
+	return (0);
 }
 
 int	main(int ac, char **av)
@@ -63,8 +47,17 @@ int	main(int ac, char **av)
 	t_list	*head;
 
 	head = NULL;
-	if (ac >= 1)
+	if (ac > 1)
+	{
 		first_check(av, &head);
+		if (int_limits(av))
+			ft_error();
+		else if (check_duplicates(head))
+			ft_error();
+		else if (is_sorted(head))
+			return (0);
+	}
 	ft(head);
 	return (0);
 }
+

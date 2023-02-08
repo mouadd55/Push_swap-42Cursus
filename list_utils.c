@@ -6,11 +6,11 @@
 /*   By: moudrib <moudrib@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/06 11:35:06 by moudrib           #+#    #+#             */
-/*   Updated: 2023/02/07 15:29:09 by moudrib          ###   ########.fr       */
+/*   Updated: 2023/02/08 14:27:23 by moudrib          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "Push_swap.h"
 
 t_list	*create_node(int data)
 {
