@@ -6,11 +6,11 @@
 /*   By: moudrib <moudrib@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/02 16:36:02 by moudrib           #+#    #+#             */
-/*   Updated: 2023/02/08 14:27:12 by moudrib          ###   ########.fr       */
+/*   Updated: 2023/02/10 21:30:21 by moudrib          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Push_swap.h"
+#include "push_swap.h"
 
 size_t	ft_strlen(const char *str)
 {

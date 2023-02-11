@@ -6,11 +6,11 @@
 /*   By: moudrib <moudrib@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/06 11:35:06 by moudrib           #+#    #+#             */
-/*   Updated: 2023/02/08 14:27:23 by moudrib          ###   ########.fr       */
+/*   Updated: 2023/02/11 10:58:56 by moudrib          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Push_swap.h"
+#include "push_swap.h"
 
 t_list	*create_node(int data)
 {
@@ -21,7 +21,6 @@ t_list	*create_node(int data)
 		return (NULL);
 	head->data = data;
 	head->next = NULL;
-	head->previous = NULL;
 	return (head);
 }
 
@@ -49,4 +48,20 @@ void	insert_at_end(t_list **head, t_list *new)
 		end = ft_lstlast(*head);
 		end->next = new;
 	}
+}
+
+void	*clear_list(t_list **head)
+{
+	t_list	*tmp;
+
+	tmp = *head;
+	if (!head || !*head || !tmp)
+		return (0);
+	while (tmp)
+	{
+		tmp = (*head)->next;
+		free (*head);
+		(*head) = tmp;
+	}
+	return (0);
 }

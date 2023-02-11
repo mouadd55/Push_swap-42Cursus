@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: moudrib <moudrib@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/02/02 16:36:05 by moudrib           #+#    #+#             */
-/*   Updated: 2023/02/08 14:33:06 by moudrib          ###   ########.fr       */
+/*   Created: 2023/02/10 21:28:16 by moudrib           #+#    #+#             */
+/*   Updated: 2023/02/11 10:59:58 by moudrib          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,11 +22,10 @@
 typedef struct s_list
 {
 	int				data;
-	struct s_list	*previous;
 	struct s_list	*next;
 }	t_list;
 
-void	ft_error(void);
+void	ft_error(t_list **head);
 ssize_t	ft_atoi(const char *str);
 void	ft_putstr(char *str);
 void	ft_putchar(char ch);
@@ -44,5 +43,6 @@ int		is_sorted(t_list *head);
 t_list	*create_node(int data);
 void	insert_at_end(t_list **head, t_list *new);
 void	first_check(char **av, t_list **head);
+void	*clear_list(t_list **head);
 
 #endif

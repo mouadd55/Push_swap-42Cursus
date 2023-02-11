@@ -5,12 +5,12 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: moudrib <moudrib@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/02/08 14:17:54 by moudrib           #+#    #+#             */
-/*   Updated: 2023/02/08 14:27:26 by moudrib          ###   ########.fr       */
+/*   Created: 2023/02/10 21:27:30 by moudrib           #+#    #+#             */
+/*   Updated: 2023/02/11 13:11:35 by moudrib          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Push_swap.h"
+#include "push_swap.h"
 
 int	count_words(char const *s, char c)
 {
@@ -48,7 +48,7 @@ char	**free_arr(char **str)
 	i = 0;
 	while (str[i])
 	{
-		free (&str[i]);
+		free (str[i]);
 		i++;
 	}
 	free (str);

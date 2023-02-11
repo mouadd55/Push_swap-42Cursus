@@ -6,7 +6,7 @@
 #    By: moudrib <moudrib@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/29 12:42:54 by moudrib           #+#    #+#              #
-#    Updated: 2023/02/08 14:33:20 by moudrib          ###   ########.fr        #
+#    Updated: 2023/02/10 21:30:10 by moudrib          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,7 +21,7 @@ all: $(NAME)
 $(NAME): $(OBJ)
 	$(CC) $(OBJ) -o $(NAME)
 
-%.o: %.c Push_swap.h
+%.o: %.c push_swap.h
 	$(CC) $(CFLAGS) -c $<
 
 clean: 

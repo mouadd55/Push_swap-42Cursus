@@ -6,15 +6,17 @@
 /*   By: moudrib <moudrib@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/02 16:36:44 by moudrib           #+#    #+#             */
-/*   Updated: 2023/02/08 14:27:19 by moudrib          ###   ########.fr       */
+/*   Updated: 2023/02/11 13:07:22 by moudrib          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Push_swap.h"
+#include "push_swap.h"
 
-void	ft_error(void)
+void	ft_error(t_list **head)
 {
 	ft_putstr("\x1B[31mError\x1B[0m");
+	ft_putchar('\n');
+	clear_list(head);
 	exit(0);
 }
 
@@ -29,9 +31,9 @@ void	first_check(char **av, t_list **head)
 	while (av[i])
 	{
 		if (av[i][0] == '\0')
-			ft_error();
+			ft_error(head);
 		else if (count_words(av[i], ' ') == 0)
-			ft_error();
+			ft_error(head);
 		arr = ft_split(av[i], ' ');
 		j = 0;
 		while (arr[j])
@@ -39,10 +41,11 @@ void	first_check(char **av, t_list **head)
 			if (ft_isdigit(arr[j]))
 				insert_at_end(head, create_node(ft_atoi(arr[j])));
 			else
-				ft_error();
+				ft_error(head);
 			j++;
 		}
 		i++;
+		free_arr(arr);
 	}
 }
 
