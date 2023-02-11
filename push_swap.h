@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Push_swap.h                                        :+:      :+:    :+:   */
+/*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: moudrib <moudrib@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/10 21:28:16 by moudrib           #+#    #+#             */
-/*   Updated: 2023/02/11 10:59:58 by moudrib          ###   ########.fr       */
+/*   Updated: 2023/02/12 00:08:49 by moudrib          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ typedef struct s_list
 	struct s_list	*next;
 }	t_list;
 
-void	ft_error(t_list **head);
+void	ft_error(t_list **stack_a, t_list **stack_b);
 ssize_t	ft_atoi(const char *str);
 void	ft_putstr(char *str);
 void	ft_putchar(char ch);
@@ -38,11 +38,31 @@ char	*ft_strjoin(char const *s1, char const *s2);
 size_t	ft_strlen(const char *str);
 char	*ft_strdup(const char *s1);
 int		check_duplicates(t_list *head);
-int		is_sorted(t_list *head);
+int		is_sorted(t_list **stack_a);
 /************************* List utils *************************/
 t_list	*create_node(int data);
 void	insert_at_end(t_list **head, t_list *new);
-void	first_check(char **av, t_list **head);
-void	*clear_list(t_list **head);
+void	first_check(char **av, t_list **stack_a, t_list **stack_b);
+void	*destroy_list(t_list **head);
+t_list	*ft_lstlast(t_list *head);
+
+/*****************************************************/
+void	ft_sa(t_list **stack_a, int i);
+void	ft_sb(t_list **stack_b, int i);
+void	ft_ss(t_list **stack_a, t_list **stack_b);
+
+/*****************************************************/
+void	ft_pa(t_list **stack_a, t_list **stack_b);
+void	ft_pb(t_list **stack_a, t_list **stack_b);
+
+/*****************************************************/
+void	ft_ra(t_list **stack_a, int i);
+void	ft_rb(t_list **stack_b, int i);
+void	ft_rr(t_list **stack_a, t_list **stack_b);
+
+/*****************************************************/
+void	ft_rra(t_list **stack_a, int i);
+void	ft_rrb(t_list **stack_b, int i);
+void	ft_rrr(t_list **stack_a, t_list **stack_b);
 
 #endif

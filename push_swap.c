@@ -6,18 +6,19 @@
 /*   By: moudrib <moudrib@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/03 15:30:47 by moudrib           #+#    #+#             */
-/*   Updated: 2023/02/11 13:07:34 by moudrib          ###   ########.fr       */
+/*   Updated: 2023/02/12 00:06:36 by moudrib          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	ft(t_list *list)
+void	ft(t_list *list, char c)
 {
 	t_list	*node;
 
 	node = list;
-	printf("-------------------------------------\n");
+	printf("               Stack %c      ", c);
+	printf("\n-------------------------------------\n");
 	printf("|   node    |   data    |   index   |\n");
 	printf("-------------------------------------\n");
 	while (node)
@@ -25,7 +26,7 @@ void	ft(t_list *list)
 		printf("|%11d|%11d|%11d|\n", 0, node->data, 0);
 		node = node->next;
 	}
-	printf("-------------------------------------\n");
+	printf("-------------------------------------\n\n");
 }
 
 int	int_limits(char **av)
@@ -44,20 +45,23 @@ int	int_limits(char **av)
 
 int	main(int ac, char **av)
 {
-	t_list	*head;
+	t_list	*stack_a;
+	t_list	*stack_b;
 
-	head = NULL;
+	stack_a = NULL;
+	stack_b = NULL;
 	if (ac > 1)
 	{
-		first_check(av, &head);
+		first_check(av, &stack_a, &stack_b);
 		if (int_limits(av))
-			ft_error(&head);
-		else if (check_duplicates(head))
-			ft_error(&head);
-		else if (is_sorted(head))
+			ft_error(&stack_a, &stack_b);
+		else if (check_duplicates(stack_a))
+			ft_error(&stack_a, &stack_b);
+		else if (is_sorted(&stack_a))
 			return (0);
 	}
-	ft(head);
+	ft(stack_a, 'A');
+	ft(stack_b, 'B');
 	system ("leaks push_swap");
 	return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: moudrib <moudrib@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/06 11:35:06 by moudrib           #+#    #+#             */
-/*   Updated: 2023/02/11 10:58:56 by moudrib          ###   ########.fr       */
+/*   Updated: 2023/02/11 19:32:42 by moudrib          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,7 @@ void	insert_at_end(t_list **head, t_list *new)
 	}
 }
 
-void	*clear_list(t_list **head)
+void	*destroy_list(t_list **head)
 {
 	t_list	*tmp;
 
@@ -65,3 +65,18 @@ void	*clear_list(t_list **head)
 	}
 	return (0);
 }
+
+// int	count_nodes(t_list *head)
+// {
+// 	t_list	*tmp;
+// 	int count;
+
+// 	count = 0;
+// 	tmp = head;
+// 	while (tmp)
+// 	{
+// 		count++;
+// 		tmp = tmp->next;
+// 	}
+// 	return (count);
+// }

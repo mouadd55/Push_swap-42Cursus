@@ -6,21 +6,22 @@
 /*   By: moudrib <moudrib@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/02 16:36:44 by moudrib           #+#    #+#             */
-/*   Updated: 2023/02/11 13:07:22 by moudrib          ###   ########.fr       */
+/*   Updated: 2023/02/11 19:33:44 by moudrib          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	ft_error(t_list **head)
+void	ft_error(t_list **stack_a, t_list **stack_b)
 {
 	ft_putstr("\x1B[31mError\x1B[0m");
 	ft_putchar('\n');
-	clear_list(head);
+	destroy_list(stack_a);
+	destroy_list(stack_b);
 	exit(0);
 }
 
-void	first_check(char **av, t_list **head)
+void	first_check(char **av, t_list **stack_a, t_list **stack_b)
 {
 	int		i;
 	int		j;
@@ -31,17 +32,17 @@ void	first_check(char **av, t_list **head)
 	while (av[i])
 	{
 		if (av[i][0] == '\0')
-			ft_error(head);
+			ft_error(stack_a, stack_b);
 		else if (count_words(av[i], ' ') == 0)
-			ft_error(head);
+			ft_error(stack_a, stack_b);
 		arr = ft_split(av[i], ' ');
 		j = 0;
 		while (arr[j])
 		{
 			if (ft_isdigit(arr[j]))
-				insert_at_end(head, create_node(ft_atoi(arr[j])));
+				insert_at_end(stack_a, create_node(ft_atoi(arr[j])));
 			else
-				ft_error(head);
+				ft_error(stack_a, stack_b);
 			j++;
 		}
 		i++;
@@ -75,11 +76,11 @@ int	check_duplicates(t_list *head)
 	return (0);
 }
 
-int	is_sorted(t_list *head)
+int	is_sorted(t_list **stack_a)
 {
 	t_list	*tmp;
 
-	tmp = head;
+	tmp = (*stack_a);
 	while (tmp->next)
 	{
 		if (tmp->data < tmp->next->data)
@@ -87,5 +88,6 @@ int	is_sorted(t_list *head)
 		else
 			return (0);
 	}
+	destroy_list(stack_a);
 	return (1);
 }
