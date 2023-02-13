@@ -6,7 +6,7 @@
 /*   By: moudrib <moudrib@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/02 16:36:44 by moudrib           #+#    #+#             */
-/*   Updated: 2023/02/11 19:33:44 by moudrib          ###   ########.fr       */
+/*   Updated: 2023/02/13 19:55:15 by moudrib          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,43 +14,55 @@
 
 void	ft_error(t_list **stack_a, t_list **stack_b)
 {
-	ft_putstr("\x1B[31mError\x1B[0m");
+	ft_putstr("\e[1m\x1B[31mError\x1B[0m");
 	ft_putchar('\n');
-	destroy_list(stack_a);
-	destroy_list(stack_b);
+	ft_destroy_list(stack_a);
+	ft_destroy_list(stack_b);
 	exit(0);
 }
 
-void	first_check(char **av, t_list **stack_a, t_list **stack_b)
+void	ft_first_check(char **av, t_list **stack_a, t_list **stack_b)
 {
 	int		i;
 	int		j;
+	int		index;
 	char	**arr;
 
-	i = 1;
-	j = 0;
-	while (av[i])
+	i = 0;
+	index = 0;
+	while (av[++i])
 	{
-		if (av[i][0] == '\0')
-			ft_error(stack_a, stack_b);
-		else if (count_words(av[i], ' ') == 0)
+		if (av[i][0] == '\0' || ft_count_words(av[i], ' ') == 0)
 			ft_error(stack_a, stack_b);
 		arr = ft_split(av[i], ' ');
-		j = 0;
-		while (arr[j])
+		j = -1;
+		while (arr[++j])
 		{
 			if (ft_isdigit(arr[j]))
-				insert_at_end(stack_a, create_node(ft_atoi(arr[j])));
+				ft_lstadd_back(stack_a, ft_lstnew(ft_atoi(arr[j]), index, -1));
 			else
 				ft_error(stack_a, stack_b);
-			j++;
+			index++;
 		}
-		i++;
-		free_arr(arr);
+		ft_free_arr(arr);
 	}
 }
 
-int	check_duplicates(t_list *head)
+int	ft_limits(char **av)
+{
+	int	i;
+
+	i = 0;
+	while (av[i])
+	{
+		if (ft_atoi(av[i]) > INT_MAX || ft_atoi(av[i]) < INT_MIN)
+			return (1);
+		i++;
+	}
+	return (0);
+}
+
+int	ft_duplicates(t_list *head)
 {
 	t_list	*tmp1;
 	t_list	*tmp2;
@@ -76,7 +88,7 @@ int	check_duplicates(t_list *head)
 	return (0);
 }
 
-int	is_sorted(t_list **stack_a)
+int	ft_is_sorted(t_list **stack_a)
 {
 	t_list	*tmp;
 
@@ -88,6 +100,6 @@ int	is_sorted(t_list **stack_a)
 		else
 			return (0);
 	}
-	destroy_list(stack_a);
+	ft_destroy_list(stack_a);
 	return (1);
 }

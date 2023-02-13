@@ -6,7 +6,7 @@
 /*   By: moudrib <moudrib@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/11 23:32:20 by moudrib           #+#    #+#             */
-/*   Updated: 2023/02/11 23:59:06 by moudrib          ###   ########.fr       */
+/*   Updated: 2023/02/13 17:14:39 by moudrib          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ void	ft_rra(t_list **stack_a, int i)
 	before_last->next = NULL;
 	(*stack_a) = last;
 	if (i == 1)
-		write (1, "rra\n", 4);
+		ft_putstr("\e[1m\e[35mrra\n");
 }
 
 void	ft_rrb(t_list **stack_b, int i)
@@ -49,13 +49,13 @@ void	ft_rrb(t_list **stack_b, int i)
 	before_last->next = NULL;
 	(*stack_b) = last;
 	if (i == 1)
-		write (1, "rrb\n", 4);
+		ft_putstr("\e[1m\e[35mrrb\n");
 }
 
 void	ft_rrr(t_list **stack_a, t_list **stack_b)
 {
 	ft_rra(stack_a, 0);
 	ft_rrb(stack_b, 0);
-	write (1, "rrr\n", 4);
+	ft_putstr("\e[1m\e[35mrrr\n");
 }
 // variable expand node

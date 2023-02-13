@@ -6,7 +6,7 @@
 /*   By: moudrib <moudrib@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/10 21:28:16 by moudrib           #+#    #+#             */
-/*   Updated: 2023/02/12 00:08:49 by moudrib          ###   ########.fr       */
+/*   Updated: 2023/02/13 19:51:42 by moudrib          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,47 +22,71 @@
 typedef struct s_list
 {
 	int				data;
+	int				index;
+	int				rank;
 	struct s_list	*next;
 }	t_list;
 
-void	ft_error(t_list **stack_a, t_list **stack_b);
+/************************* Libft functions *************************/
+
 ssize_t	ft_atoi(const char *str);
-void	ft_putstr(char *str);
-void	ft_putchar(char ch);
-int		ft_isdigit(char *str);
-char	**free_arr(char **str);
-int		count_words(char const *s, char c);
+char	*ft_strdup(const char *s1);
+size_t	ft_strlen(const char *str);
 char	**ft_split(char const *s, char c);
 char	*ft_substr(char const *s, unsigned int start, size_t len);
-char	*ft_strjoin(char const *s1, char const *s2);
-size_t	ft_strlen(const char *str);
-char	*ft_strdup(const char *s1);
-int		check_duplicates(t_list *head);
-int		is_sorted(t_list **stack_a);
-/************************* List utils *************************/
-t_list	*create_node(int data);
-void	insert_at_end(t_list **head, t_list *new);
-void	first_check(char **av, t_list **stack_a, t_list **stack_b);
-void	*destroy_list(t_list **head);
-t_list	*ft_lstlast(t_list *head);
 
-/*****************************************************/
+/****************************** Utils ******************************/
+
+void	ft_putchar(char ch);
+void	ft_putstr(char *str);
+char	**ft_free_arr(char **str);
+int		ft_count_words(char const *s, char c);
+
+/***************************** Parsing *****************************/
+
+int		ft_limits(char **av);
+int		ft_isdigit(char *str);
+int		ft_duplicates(t_list *head);
+int		ft_is_sorted(t_list **stack_a);
+void	ft_error(t_list **stack_a, t_list **stack_b);
+void	ft_first_check(char **av, t_list **stack_a, t_list **stack_b);
+
+/**************************** List utils ***************************/
+
+t_list	*ft_lstnew(int data, int index, int rank);
+t_list	*ft_lstlast(t_list *head);
+void	ft_sort_index(t_list *stack_a);
+void	*ft_destroy_list(t_list **head);
+void	ft_lstadd_back(t_list **head, t_list *new);
+
+/*********************** Swap instructions *************************/
+
 void	ft_sa(t_list **stack_a, int i);
 void	ft_sb(t_list **stack_b, int i);
 void	ft_ss(t_list **stack_a, t_list **stack_b);
 
-/*****************************************************/
-void	ft_pa(t_list **stack_a, t_list **stack_b);
-void	ft_pb(t_list **stack_a, t_list **stack_b);
+/*********************** Push instructions *************************/
 
-/*****************************************************/
+void	ft_pb(t_list **stack_a, t_list **stack_b);
+void	ft_pa(t_list **stack_b, t_list **stack_a);
+
+/********************** Rotate instructions ************************/
+
 void	ft_ra(t_list **stack_a, int i);
 void	ft_rb(t_list **stack_b, int i);
 void	ft_rr(t_list **stack_a, t_list **stack_b);
 
-/*****************************************************/
+/****************** Reverse rotate instructions ********************/
+
 void	ft_rra(t_list **stack_a, int i);
 void	ft_rrb(t_list **stack_b, int i);
 void	ft_rrr(t_list **stack_a, t_list **stack_b);
+
+/****************** Stack size <= 5 ********************/
+
+void	ft_stack_size_2(t_list	**stack_a);
+void	ft_stack_size_3(t_list **stack_a);
+void	ft_stack_size_4(t_list **stack_a);
+void	ft_stack_size_5(t_list **stack_a);
 
 #endif

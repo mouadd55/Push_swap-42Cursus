@@ -6,41 +6,28 @@
 /*   By: moudrib <moudrib@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/03 15:30:47 by moudrib           #+#    #+#             */
-/*   Updated: 2023/02/12 00:06:36 by moudrib          ###   ########.fr       */
+/*   Updated: 2023/02/13 19:55:31 by moudrib          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	ft(t_list *list, char c)
+void	ft(t_list *stack, char c)
 {
-	t_list	*node;
+	t_list	*tmp;
 
-	node = list;
-	printf("               Stack %c      ", c);
+	tmp = stack;
+	printf("               \e[1m\e[93mStack %c      ", c);
 	printf("\n-------------------------------------\n");
-	printf("|   node    |   data    |   index   |\n");
+	printf("|   index    |   data    |   rank   |\n");
 	printf("-------------------------------------\n");
-	while (node)
+	while (tmp)
 	{
-		printf("|%11d|%11d|%11d|\n", 0, node->data, 0);
-		node = node->next;
+		printf("|%11d|%11d|%11d|\n", tmp->index, tmp->data, tmp->rank);
+		tmp = tmp->next;
 	}
 	printf("-------------------------------------\n\n");
-}
-
-int	int_limits(char **av)
-{
-	int	i;
-
-	i = 0;
-	while (av[i])
-	{
-		if (ft_atoi(av[i]) > INT_MAX || ft_atoi(av[i]) < INT_MIN)
-			return (1);
-		i++;
-	}
-	return (0);
+	ft_putstr("\x1B[0m");
 }
 
 int	main(int ac, char **av)
@@ -52,14 +39,13 @@ int	main(int ac, char **av)
 	stack_b = NULL;
 	if (ac > 1)
 	{
-		first_check(av, &stack_a, &stack_b);
-		if (int_limits(av))
+		ft_first_check(av, &stack_a, &stack_b);
+		if (ft_limits(av) || ft_duplicates(stack_a))
 			ft_error(&stack_a, &stack_b);
-		else if (check_duplicates(stack_a))
-			ft_error(&stack_a, &stack_b);
-		else if (is_sorted(&stack_a))
+		else if (ft_is_sorted(&stack_a))
 			return (0);
 	}
+	//ft_stack_size_3(&stack_a);
 	ft(stack_a, 'A');
 	ft(stack_b, 'B');
 	system ("leaks push_swap");

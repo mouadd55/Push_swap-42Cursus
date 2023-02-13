@@ -6,13 +6,13 @@
 /*   By: moudrib <moudrib@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/06 11:35:06 by moudrib           #+#    #+#             */
-/*   Updated: 2023/02/11 19:32:42 by moudrib          ###   ########.fr       */
+/*   Updated: 2023/02/13 20:25:40 by moudrib          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-t_list	*create_node(int data)
+t_list	*ft_lstnew(int data, int index, int rank)
 {
 	t_list	*head;
 
@@ -20,6 +20,8 @@ t_list	*create_node(int data)
 	if (!head)
 		return (NULL);
 	head->data = data;
+	head->index = index;
+	head->rank = rank;
 	head->next = NULL;
 	return (head);
 }
@@ -37,7 +39,7 @@ t_list	*ft_lstlast(t_list *head)
 	return (NULL);
 }
 
-void	insert_at_end(t_list **head, t_list *new)
+void	ft_lstadd_back(t_list **head, t_list *new)
 {
 	t_list	*end;
 
@@ -50,7 +52,7 @@ void	insert_at_end(t_list **head, t_list *new)
 	}
 }
 
-void	*destroy_list(t_list **head)
+void	*ft_destroy_list(t_list **head)
 {
 	t_list	*tmp;
 
@@ -66,17 +68,8 @@ void	*destroy_list(t_list **head)
 	return (0);
 }
 
-// int	count_nodes(t_list *head)
-// {
-// 	t_list	*tmp;
-// 	int count;
-
-// 	count = 0;
-// 	tmp = head;
-// 	while (tmp)
-// 	{
-// 		count++;
-// 		tmp = tmp->next;
-// 	}
-// 	return (count);
-// }
+void	ft_sort_index(t_list *stack_a)
+{
+	
+	
+}
