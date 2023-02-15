@@ -6,7 +6,7 @@
 /*   By: moudrib <moudrib@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/10 21:28:16 by moudrib           #+#    #+#             */
-/*   Updated: 2023/02/13 19:51:42 by moudrib          ###   ########.fr       */
+/*   Updated: 2023/02/15 12:34:12 by moudrib          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,11 +82,18 @@ void	ft_rra(t_list **stack_a, int i);
 void	ft_rrb(t_list **stack_b, int i);
 void	ft_rrr(t_list **stack_a, t_list **stack_b);
 
+/**************************** Sorting utils ***************************/
+
+int		ft_count_nodes(t_list *head);
+int		ft_index_util(t_list *stack_a);
+int		ft_smallest(t_list *stack_a, int rank);
+void	ft_bring_to_top(t_list **stack_a, int index);
+
 /****************** Stack size <= 5 ********************/
 
-void	ft_stack_size_2(t_list	**stack_a);
+void	ft_stack_size_2(t_list **stack_a);
 void	ft_stack_size_3(t_list **stack_a);
-void	ft_stack_size_4(t_list **stack_a);
-void	ft_stack_size_5(t_list **stack_a);
+void	ft_stack_size_4(t_list **stack_a, t_list **stack_b);
+void	ft_stack_size_5(t_list **stack_a, t_list **stack_b);
 
 #endif

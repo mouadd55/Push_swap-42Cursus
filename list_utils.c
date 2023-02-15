@@ -6,7 +6,7 @@
 /*   By: moudrib <moudrib@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/06 11:35:06 by moudrib           #+#    #+#             */
-/*   Updated: 2023/02/13 20:25:40 by moudrib          ###   ########.fr       */
+/*   Updated: 2023/02/15 12:01:29 by moudrib          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,6 +70,25 @@ void	*ft_destroy_list(t_list **head)
 
 void	ft_sort_index(t_list *stack_a)
 {
-	
-	
+	int		i;
+	t_list	*tmp;
+	int		rank;
+	int		nodes;
+	int		smallest;
+
+	i = 0;
+	rank = 0;
+	tmp = stack_a;
+	nodes = ft_count_nodes(stack_a);
+	while (rank < nodes)
+	{
+		smallest = ft_index_util(stack_a);
+		while (i++ < smallest)
+			tmp = tmp->next;
+		if (tmp->rank == -1)
+			tmp->rank = rank;
+		i = 0;
+		rank++;
+		tmp = stack_a;
+	}
 }

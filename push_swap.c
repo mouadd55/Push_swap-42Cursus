@@ -6,7 +6,7 @@
 /*   By: moudrib <moudrib@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/03 15:30:47 by moudrib           #+#    #+#             */
-/*   Updated: 2023/02/13 19:55:31 by moudrib          ###   ########.fr       */
+/*   Updated: 2023/02/15 12:31:31 by moudrib          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,8 @@ int	main(int ac, char **av)
 		else if (ft_is_sorted(&stack_a))
 			return (0);
 	}
-	//ft_stack_size_3(&stack_a);
+	ft_sort_index(stack_a);
+	ft_stack_size_5(&stack_a, &stack_b);
 	ft(stack_a, 'A');
 	ft(stack_b, 'B');
 	system ("leaks push_swap");
