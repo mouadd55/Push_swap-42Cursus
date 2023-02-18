@@ -6,7 +6,7 @@
 /*   By: moudrib <moudrib@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/03 15:30:47 by moudrib           #+#    #+#             */
-/*   Updated: 2023/02/15 12:31:31 by moudrib          ###   ########.fr       */
+/*   Updated: 2023/02/18 19:02:16 by moudrib          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,16 +17,17 @@ void	ft(t_list *stack, char c)
 	t_list	*tmp;
 
 	tmp = stack;
-	printf("               \e[1m\e[93mStack %c      ", c);
-	printf("\n-------------------------------------\n");
-	printf("|   index    |   data    |   rank   |\n");
-	printf("-------------------------------------\n");
+	printf("                      \e[1m\e[93mStack %c      ", c);
+	printf("\n-------------------------------------------------\n");
+	printf("|   index    |   data    |   rank   |   moves   |\n");
+	printf("-------------------------------------------------\n");
 	while (tmp)
 	{
-		printf("|%11d|%11d|%11d|\n", tmp->index, tmp->data, tmp->rank);
+		printf("|%11d|%11d|%11d|%11d|\n", tmp->index, tmp->data, tmp->rank,
+			tmp->moves);
 		tmp = tmp->next;
 	}
-	printf("-------------------------------------\n\n");
+	printf("-------------------------------------------------\n\n");
 	ft_putstr("\x1B[0m");
 }
 
@@ -46,7 +47,8 @@ int	main(int ac, char **av)
 			return (0);
 	}
 	ft_sort_index(stack_a);
-	ft_stack_size_5(&stack_a, &stack_b);
+	ft_moves(&stack_a);
+	ft_stack_size(&stack_a, &stack_b);
 	ft(stack_a, 'A');
 	ft(stack_b, 'B');
 	system ("leaks push_swap");

@@ -6,7 +6,7 @@
 #    By: moudrib <moudrib@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/29 12:42:54 by moudrib           #+#    #+#              #
-#    Updated: 2023/02/15 12:25:00 by moudrib          ###   ########.fr        #
+#    Updated: 2023/02/16 16:24:58 by moudrib          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,7 @@ NAME = push_swap
 CC = cc
 CFLAGS =  -g
 SRC = 	ft_split.c push_swap.c utils.c utils2.c list_utils.c parsing.c swap.c \
-		push.c rotate.c reverse_rotate.c sorting5.c utils3.c
+		push.c rotate.c reverse_rotate.c sorting5.c sorting100.c utils3.c
 OBJ = $(SRC:.c=.o)
 
 all: $(NAME)

@@ -6,7 +6,7 @@
 /*   By: moudrib <moudrib@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/10 21:28:16 by moudrib           #+#    #+#             */
-/*   Updated: 2023/02/15 12:34:12 by moudrib          ###   ########.fr       */
+/*   Updated: 2023/02/18 13:50:51 by moudrib          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,9 +24,11 @@ typedef struct s_list
 	int				data;
 	int				index;
 	int				rank;
+	int				moves;
 	struct s_list	*next;
 }	t_list;
 
+void	ft(t_list *stack, char c);
 /************************* Libft functions *************************/
 
 ssize_t	ft_atoi(const char *str);
@@ -95,5 +97,14 @@ void	ft_stack_size_2(t_list **stack_a);
 void	ft_stack_size_3(t_list **stack_a);
 void	ft_stack_size_4(t_list **stack_a, t_list **stack_b);
 void	ft_stack_size_5(t_list **stack_a, t_list **stack_b);
+
+void	ft_reindexing(t_list **stack);
+void	ft_stack_size(t_list **stack_a, t_list **stack_b);
+void	ft_stack_size_100(t_list **stack_a, t_list **stack_b);
+void	ft_first_chunk(t_list **stack_a, t_list **stack_b, int start, int end);
+void	ft_moves(t_list **stack);
+int		ft_smallest_move_in_chunk(t_list **stack_a, int start, int end);
+void	ft_organize_b(t_list **stack_b, int average);
+void	ft_push_back_to_a(t_list **stack_b, t_list **stack_a, int len);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: moudrib <moudrib@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/02 16:36:44 by moudrib           #+#    #+#             */
-/*   Updated: 2023/02/13 19:55:15 by moudrib          ###   ########.fr       */
+/*   Updated: 2023/02/16 20:02:37 by moudrib          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ void	ft_first_check(char **av, t_list **stack_a, t_list **stack_b)
 	index = 0;
 	while (av[++i])
 	{
-		if (av[i][0] == '\0' || ft_count_words(av[i], ' ') == 0)
+		if (ft_count_words(av[i], ' ') == 0)
 			ft_error(stack_a, stack_b);
 		arr = ft_split(av[i], ' ');
 		j = -1;

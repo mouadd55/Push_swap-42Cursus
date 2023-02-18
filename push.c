@@ -6,7 +6,7 @@
 /*   By: moudrib <moudrib@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/11 15:46:42 by moudrib           #+#    #+#             */
-/*   Updated: 2023/02/13 17:13:02 by moudrib          ###   ########.fr       */
+/*   Updated: 2023/02/18 16:12:32 by moudrib          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ void	ft_pa(t_list **stack_b, t_list **stack_a)
 	(*stack_b) = (*stack_b)->next;
 	tmp->next = (*stack_a);
 	(*stack_a) = tmp;
-	ft_putstr("\e[1m\e[35mpa\n");
+	ft_putstr("pa\n");
 }
 
 void	ft_pb(t_list **stack_a, t_list **stack_b)
@@ -35,5 +35,5 @@ void	ft_pb(t_list **stack_a, t_list **stack_b)
 	(*stack_a) = (*stack_a)->next;
 	tmp->next = (*stack_b);
 	(*stack_b) = tmp;
-	ft_putstr("\e[1m\e[35mpb\n");
+	ft_putstr("pb\n");
 }

@@ -6,7 +6,7 @@
 /*   By: moudrib <moudrib@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/11 14:35:51 by moudrib           #+#    #+#             */
-/*   Updated: 2023/02/15 12:34:46 by moudrib          ###   ########.fr       */
+/*   Updated: 2023/02/18 16:13:14 by moudrib          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ void	ft_sa(t_list **stack_a, int i)
 	(*stack_a)->next->data = tmp1;
 	(*stack_a)->next->rank = tmp2;
 	if (i == 1)
-		ft_putstr("\e[1m\e[35msa\n");
+		ft_putstr("sa\n");
 }
 
 void	ft_sb(t_list **stack_b, int i)
@@ -43,12 +43,12 @@ void	ft_sb(t_list **stack_b, int i)
 	(*stack_b)->next->data = tmp1;
 	(*stack_b)->next->rank = tmp2;
 	if (i == 1)
-		ft_putstr("\e[1m\e[35msb\n");
+		ft_putstr("sb\n");
 }
 
 void	ft_ss(t_list **stack_a, t_list **stack_b)
 {
 	ft_sa(stack_a, 0);
 	ft_sb(stack_b, 0);
-	ft_putstr("\e[1m\e[35mss\n");
+	ft_putstr("ss\n");
 }
