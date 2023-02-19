@@ -6,7 +6,7 @@
 /*   By: moudrib <moudrib@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 15:04:43 by moudrib           #+#    #+#             */
-/*   Updated: 2023/02/18 19:08:47 by moudrib          ###   ########.fr       */
+/*   Updated: 2023/02/19 19:39:56 by moudrib          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ void	ft_moves(t_list **stack_a)
 	middle = len / 2;
 	while (tmp)
 	{
-		if (tmp->index < middle)
+		if (tmp->index <= middle)
 			tmp->moves = tmp->index;
 		else
 			tmp->moves = len - tmp->index;
@@ -50,7 +50,7 @@ void	ft_first_chunk(t_list **stack_a, t_list **stack_b, int start, int end)
 	average = (end + start - 1) / 2;
 	tmp = (*stack_a);
 	middle = ft_count_nodes(*stack_a) / 2;
-	while (start < end)
+	while (start < end && ft_count_nodes(*stack_a))
 	{
 		tmp = (*stack_a);
 		while (tmp->next && tmp->rank != start)
@@ -100,16 +100,16 @@ void	ft_stack_size_100(t_list **stack_a, t_list **stack_b)
 {
 	int	i;
 	int	end;
-	int	start;
 	int	len;
 	int	diff;
+	int	start;
 
 	i = 0;
 	start = 0;
 	len = ft_count_nodes(*stack_a);
 	end = len / 5;
 	diff = len / 5;
-	while (i++ < 5)
+	while (ft_count_nodes(*stack_a))
 	{
 		ft_first_chunk(stack_a, stack_b, start, end);
 		start += diff;
