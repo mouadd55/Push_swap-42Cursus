@@ -6,7 +6,7 @@
 /*   By: moudrib <moudrib@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/10 21:28:16 by moudrib           #+#    #+#             */
-/*   Updated: 2023/02/20 16:20:26 by moudrib          ###   ########.fr       */
+/*   Updated: 2023/02/20 20:16:57 by moudrib          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -103,8 +103,8 @@ void	ft_stack_size(t_list **stack_a, t_list **stack_b);
 void	ft_stack_size_100(t_list **stack_a, t_list **stack_b);
 void	ft_first_chunk(t_list **stack_a, t_list **stack_b, int start, int end);
 void	ft_moves(t_list **stack);
-int		ft_smallest_move_in_chunk(t_list **stack_a, int start, int end);
 void	ft_organize_b(t_list **stack_b, int average);
 void	ft_push_back_to_a(t_list **stack_b, t_list **stack_a, int len);
+void	ft_push_a(t_list **stack_b, t_list **stack_a);
 
 #endif
