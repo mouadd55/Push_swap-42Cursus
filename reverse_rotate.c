@@ -6,7 +6,7 @@
 /*   By: moudrib <moudrib@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/11 23:32:20 by moudrib           #+#    #+#             */
-/*   Updated: 2023/02/18 16:14:06 by moudrib          ###   ########.fr       */
+/*   Updated: 2023/02/20 16:17:36 by moudrib          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ void	ft_rra(t_list **stack_a, int i)
 	t_list	*before_last;
 	t_list	*last;
 
-	if (!*stack_a || !stack_a)
+	if (!*stack_a || !stack_a || !(*stack_a)->next)
 		return ;
 	tmp = (*stack_a);
 	before_last = (*stack_a);
@@ -38,7 +38,7 @@ void	ft_rrb(t_list **stack_b, int i)
 	t_list	*before_last;
 	t_list	*last;
 
-	if (!*stack_b || !stack_b)
+	if (!*stack_b || !stack_b || !(*stack_b)->next)
 		return ;
 	tmp = (*stack_b);
 	before_last = (*stack_b);
