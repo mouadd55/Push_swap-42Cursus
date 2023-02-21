@@ -6,7 +6,7 @@
 /*   By: moudrib <moudrib@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/15 12:00:28 by moudrib           #+#    #+#             */
-/*   Updated: 2023/02/20 19:41:10 by moudrib          ###   ########.fr       */
+/*   Updated: 2023/02/21 20:01:32 by moudrib          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,19 +86,21 @@ void	ft_stack_size(t_list **stack_a, t_list **stack_b)
 	else if (nodes > 5 && nodes <= 100)
 		ft_stack_size_100(stack_a, stack_b);
 	else if (nodes > 100 && nodes <= 500)
-		ft_stack_size_100(stack_a, stack_b);
+		ft_stack_size_500(stack_a, stack_b);
 }
 
-void	ft_reindexing(t_list **stack_a)
+void	ft_reindexing(t_list **stack)
 {
 	int		i;
+	int		len;
 	t_list	*tmp;
 
-	i = 0;
-	tmp = (*stack_a);
-	while (tmp)
+	i = -1;
+	len = ft_count_nodes(*stack);
+	tmp = (*stack);
+	while (++i < len)
 	{
-		tmp->index = i++;
+		tmp->index = i;
 		tmp = tmp->next;
 	}
 }
