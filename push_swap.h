@@ -6,7 +6,7 @@
 /*   By: moudrib <moudrib@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/10 21:28:16 by moudrib           #+#    #+#             */
-/*   Updated: 2023/02/21 22:12:48 by moudrib          ###   ########.fr       */
+/*   Updated: 2023/02/24 19:45:26 by moudrib          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,6 @@ typedef struct s_list
 	struct s_list	*next;
 }	t_list;
 
-void	ft(t_list *stack, char c);
 /************************* Libft functions *************************/
 
 ssize_t	ft_atoi(const char *str);
@@ -84,27 +83,31 @@ void	ft_rra(t_list **stack_a, int i);
 void	ft_rrb(t_list **stack_b, int i);
 void	ft_rrr(t_list **stack_a, t_list **stack_b);
 
-/**************************** Sorting utils ***************************/
+/************************** Sorting utils **************************/
 
 int		ft_count_nodes(t_list *head);
 int		ft_index_util(t_list *stack_a);
 int		ft_smallest(t_list *stack_a, int rank);
 void	ft_bring_to_top(t_list **stack_a, int index);
 
-/****************** Stack size <= 5 ********************/
+/************************* Stack size <= 5 *************************/
 
 void	ft_stack_size_2(t_list **stack_a);
 void	ft_stack_size_3(t_list **stack_a);
 void	ft_stack_size_4(t_list **stack_a, t_list **stack_b);
 void	ft_stack_size_5(t_list **stack_a, t_list **stack_b);
 
+/******************* Stack size > 5 && <= 500 **********************/
+
+void	ft_moves(t_list **stack);
 void	ft_reindexing(t_list **stack);
+t_list	*ft_find_first_max(t_list **stack_b);
+t_list	*ft_find_second_max(t_list **stack_b);
 void	ft_stack_size(t_list **stack_a, t_list **stack_b);
 void	ft_stack_size_100(t_list **stack_a, t_list **stack_b);
-void	ft_push_chunk(t_list **stack_a, t_list **stack_b, int start, int end);
-void	ft_moves(t_list **stack);
-int		ft_organize_b(t_list **stack_b, int average);
-void	ft_push_back_to_a(t_list **stack_b, t_list **stack_a, int len);
 void	ft_stack_size_500(t_list **stack_a, t_list **stack_b);
+void	ft_push_to_a(t_list **stack_b, t_list **stack_a, int rank);
+void	ft_push_back_to_stack_a(t_list **stack_b, t_list **stack_a);
+void	ft_push_chunk(t_list **stack_a, t_list **stack_b, int start, int end);
 
 #endif

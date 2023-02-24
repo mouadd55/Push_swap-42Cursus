@@ -6,7 +6,7 @@
 /*   By: moudrib <moudrib@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/15 12:00:28 by moudrib           #+#    #+#             */
-/*   Updated: 2023/02/21 20:01:32 by moudrib          ###   ########.fr       */
+/*   Updated: 2023/02/24 16:05:17 by moudrib          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,6 +96,8 @@ void	ft_reindexing(t_list **stack)
 	t_list	*tmp;
 
 	i = -1;
+	if (!*stack || !stack)
+		return ;
 	len = ft_count_nodes(*stack);
 	tmp = (*stack);
 	while (++i < len)
