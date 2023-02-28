@@ -6,7 +6,7 @@
 /*   By: moudrib <moudrib@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/11 14:35:51 by moudrib           #+#    #+#             */
-/*   Updated: 2023/02/18 16:13:14 by moudrib          ###   ########.fr       */
+/*   Updated: 2023/02/28 01:36:59 by moudrib          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ void	ft_sa(t_list **stack_a, int i)
 	int	tmp1;
 	int	tmp2;
 
-	if (!*stack_a || !stack_a)
+	if (!*stack_a || !stack_a || !(*stack_a)->next)
 		return ;
 	tmp1 = (*stack_a)->data;
 	tmp2 = (*stack_a)->rank;
@@ -34,7 +34,7 @@ void	ft_sb(t_list **stack_b, int i)
 	int	tmp1;
 	int	tmp2;
 
-	if (!*stack_b || !stack_b)
+	if (!*stack_b || !stack_b || !(*stack_b)->next)
 		return ;
 	tmp1 = (*stack_b)->data;
 	tmp2 = (*stack_b)->rank;
@@ -46,9 +46,10 @@ void	ft_sb(t_list **stack_b, int i)
 		ft_putstr("sb\n");
 }
 
-void	ft_ss(t_list **stack_a, t_list **stack_b)
+void	ft_ss(t_list **stack_a, t_list **stack_b, int i)
 {
 	ft_sa(stack_a, 0);
 	ft_sb(stack_b, 0);
-	ft_putstr("ss\n");
+	if (i == 1)
+		ft_putstr("ss\n");
 }

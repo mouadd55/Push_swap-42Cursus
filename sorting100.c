@@ -6,7 +6,7 @@
 /*   By: moudrib <moudrib@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 15:04:43 by moudrib           #+#    #+#             */
-/*   Updated: 2023/02/24 19:49:57 by moudrib          ###   ########.fr       */
+/*   Updated: 2023/02/27 21:40:05 by moudrib          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,10 +23,10 @@ void	ft_push_chunk(t_list **stack_a, t_list **stack_b, int start, int end)
 	{
 		if ((*stack_a)->rank >= start && (*stack_a)->rank < end)
 		{
-			ft_pb(stack_a, stack_b);
+			ft_pb(stack_a, stack_b, 1);
 			if ((*stack_a) && ((*stack_b)->rank > average)
 				&& ((*stack_a)->rank >= end))
-				ft_rr(stack_a, stack_b);
+				ft_rr(stack_a, stack_b, 1);
 			else if ((*stack_b)->rank > average)
 				ft_rb(stack_b, 1);
 			count++;
@@ -80,7 +80,7 @@ void	ft_push_to_a(t_list **stack_b, t_list **stack_a, int rank)
 	else
 		while (tmp->moves--)
 			ft_rrb(stack_b, 1);
-	ft_pa(stack_b, stack_a);
+	ft_pa(stack_b, stack_a, 1);
 	ft_reindexing(stack_b);
 	ft_moves(stack_b);
 }

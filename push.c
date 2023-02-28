@@ -6,13 +6,13 @@
 /*   By: moudrib <moudrib@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/11 15:46:42 by moudrib           #+#    #+#             */
-/*   Updated: 2023/02/21 19:57:24 by moudrib          ###   ########.fr       */
+/*   Updated: 2023/02/28 17:12:09 by moudrib          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	ft_pa(t_list **stack_b, t_list **stack_a)
+void	ft_pa(t_list **stack_b, t_list **stack_a, int i)
 {
 	t_list	*tmp;
 
@@ -22,10 +22,11 @@ void	ft_pa(t_list **stack_b, t_list **stack_a)
 	(*stack_b) = (*stack_b)->next;
 	tmp->next = (*stack_a);
 	(*stack_a) = tmp;
-	ft_putstr("pa\n");
+	if (i == 1)
+		ft_putstr("pa\n");
 }
 
-void	ft_pb(t_list **stack_a, t_list **stack_b)
+void	ft_pb(t_list **stack_a, t_list **stack_b, int i)
 {
 	t_list	*tmp;
 
@@ -35,5 +36,6 @@ void	ft_pb(t_list **stack_a, t_list **stack_b)
 	(*stack_a) = (*stack_a)->next;
 	tmp->next = (*stack_b);
 	(*stack_b) = tmp;
-	ft_putstr("pb\n");
+	if (i == 1)
+		ft_putstr("pb\n");
 }

@@ -6,7 +6,7 @@
 /*   By: moudrib <moudrib@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/13 16:22:22 by moudrib           #+#    #+#             */
-/*   Updated: 2023/02/15 14:09:41 by moudrib          ###   ########.fr       */
+/*   Updated: 2023/02/27 20:43:24 by moudrib          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,9 +70,9 @@ void	ft_stack_size_4(t_list **stack_a, t_list **stack_b)
 	tmp = (*stack_a);
 	count = ft_smallest(*stack_a, 0);
 	ft_bring_to_top(stack_a, count);
-	ft_pb(stack_a, stack_b);
+	ft_pb(stack_a, stack_b, 1);
 	ft_stack_size_3(stack_a);
-	ft_pa(stack_b, stack_a);
+	ft_pa(stack_b, stack_a, 1);
 }
 
 void	ft_stack_size_5(t_list **stack_a, t_list **stack_b)
@@ -81,11 +81,11 @@ void	ft_stack_size_5(t_list **stack_a, t_list **stack_b)
 
 	count = ft_smallest(*stack_a, 0);
 	ft_bring_to_top(stack_a, count);
-	ft_pb(stack_a, stack_b);
+	ft_pb(stack_a, stack_b, 1);
 	count = ft_smallest(*stack_a, 1);
 	ft_bring_to_top(stack_a, count);
-	ft_pb(stack_a, stack_b);
+	ft_pb(stack_a, stack_b, 1);
 	ft_stack_size_3(stack_a);
-	ft_pa(stack_b, stack_a);
-	ft_pa(stack_b, stack_a);
+	ft_pa(stack_b, stack_a, 1);
+	ft_pa(stack_b, stack_a, 1);
 }

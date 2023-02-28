@@ -6,7 +6,7 @@
 /*   By: moudrib <moudrib@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/10 21:28:16 by moudrib           #+#    #+#             */
-/*   Updated: 2023/02/24 19:45:26 by moudrib          ###   ########.fr       */
+/*   Updated: 2023/02/28 17:12:00 by moudrib          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,12 @@
 # include <stdlib.h>
 # include <unistd.h>
 # include <stdio.h>
+# include <fcntl.h>
 # include <limits.h>
+
+# ifndef BUFFER_SIZE
+#  define BUFFER_SIZE 5
+# endif
 
 typedef struct s_list
 {
@@ -56,7 +61,7 @@ void	ft_first_check(char **av, t_list **stack_a, t_list **stack_b);
 
 t_list	*ft_lstnew(int data, int index, int rank);
 t_list	*ft_lstlast(t_list *head);
-void	ft_sort_index(t_list *stack_a);
+void	ft_sort_rank(t_list *stack_a);
 void	*ft_destroy_list(t_list **head);
 void	ft_lstadd_back(t_list **head, t_list *new);
 
@@ -64,24 +69,24 @@ void	ft_lstadd_back(t_list **head, t_list *new);
 
 void	ft_sa(t_list **stack_a, int i);
 void	ft_sb(t_list **stack_b, int i);
-void	ft_ss(t_list **stack_a, t_list **stack_b);
+void	ft_ss(t_list **stack_a, t_list **stack_b, int i);
 
 /*********************** Push instructions *************************/
 
-void	ft_pb(t_list **stack_a, t_list **stack_b);
-void	ft_pa(t_list **stack_b, t_list **stack_a);
+void	ft_pb(t_list **stack_a, t_list **stack_b, int i);
+void	ft_pa(t_list **stack_b, t_list **stack_a, int i);
 
 /********************** Rotate instructions ************************/
 
 void	ft_ra(t_list **stack_a, int i);
 void	ft_rb(t_list **stack_b, int i);
-void	ft_rr(t_list **stack_a, t_list **stack_b);
+void	ft_rr(t_list **stack_a, t_list **stack_b, int i);
 
 /****************** Reverse rotate instructions ********************/
 
 void	ft_rra(t_list **stack_a, int i);
 void	ft_rrb(t_list **stack_b, int i);
-void	ft_rrr(t_list **stack_a, t_list **stack_b);
+void	ft_rrr(t_list **stack_a, t_list **stack_b, int i);
 
 /************************** Sorting utils **************************/
 
@@ -109,5 +114,18 @@ void	ft_stack_size_500(t_list **stack_a, t_list **stack_b);
 void	ft_push_to_a(t_list **stack_b, t_list **stack_a, int rank);
 void	ft_push_back_to_stack_a(t_list **stack_b, t_list **stack_a);
 void	ft_push_chunk(t_list **stack_a, t_list **stack_b, int start, int end);
+
+/************************** Get next line **************************/
+
+char	*save_rest(char *buf);
+char	*get_next_line(int fd);
+int		search_newline(char *s);
+char	*read_line(int fd, char *buf);
+char	*ft_strjoin(char *s1, char *s2);
+
+/****************************** Bonus ******************************/
+
+int		ft_strcmp(const char *s1, const char *s2);
+void	ft_execute_instructions(t_list **stack_a, t_list **stack_b, char *str);
 
 #endif

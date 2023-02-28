@@ -6,7 +6,7 @@
 /*   By: moudrib <moudrib@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/15 12:00:28 by moudrib           #+#    #+#             */
-/*   Updated: 2023/02/24 16:05:17 by moudrib          ###   ########.fr       */
+/*   Updated: 2023/02/28 20:27:26 by moudrib          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,6 @@ int	ft_smallest(t_list *stack_a, int rank)
 {
 	t_list	*tmp;
 	int		index;
-	int		smallest;
 
 	index = 0;
 	if (!stack_a)
@@ -49,7 +48,6 @@ int	ft_index_util(t_list *stack_a)
 {
 	t_list	*tmp;
 	int		index;
-	int		count;
 	int		smallest;
 
 	index = 0;

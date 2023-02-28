@@ -6,7 +6,7 @@
 /*   By: moudrib <moudrib@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/02 16:36:44 by moudrib           #+#    #+#             */
-/*   Updated: 2023/02/16 20:02:37 by moudrib          ###   ########.fr       */
+/*   Updated: 2023/02/27 13:46:27 by moudrib          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,12 @@ void	ft_error(t_list **stack_a, t_list **stack_b)
 	exit(0);
 }
 
+/*This function helps to detect is there any empty argument then
+split each argument and check if it's a valid number using
+ft_isdigit function after that i fill my linked list by adding the
+converted strings to integers at the end of the list and adding an
+index to each node from 0 (the first integer) until the last node.
+For the -1 argument it helps me later to give the right rank to each node*/
 void	ft_first_check(char **av, t_list **stack_a, t_list **stack_b)
 {
 	int		i;
@@ -52,13 +58,10 @@ int	ft_limits(char **av)
 {
 	int	i;
 
-	i = 0;
-	while (av[i])
-	{
+	i = -1;
+	while (av[++i])
 		if (ft_atoi(av[i]) > INT_MAX || ft_atoi(av[i]) < INT_MIN)
 			return (1);
-		i++;
-	}
 	return (0);
 }
 
@@ -69,10 +72,9 @@ int	ft_duplicates(t_list *head)
 	int		count;
 
 	tmp1 = head;
-	tmp2 = head;
-	count = 0;
 	while (tmp1)
 	{
+		count = 0;
 		tmp2 = head;
 		while (tmp2)
 		{
@@ -83,7 +85,6 @@ int	ft_duplicates(t_list *head)
 			tmp2 = tmp2->next;
 		}
 		tmp1 = tmp1->next;
-		count = 0;
 	}
 	return (0);
 }

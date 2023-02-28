@@ -6,7 +6,7 @@
 /*   By: moudrib <moudrib@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/11 21:52:50 by moudrib           #+#    #+#             */
-/*   Updated: 2023/02/18 16:15:01 by moudrib          ###   ########.fr       */
+/*   Updated: 2023/02/27 21:40:15 by moudrib          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,9 +44,10 @@ void	ft_rb(t_list **stack_b, int i)
 		ft_putstr("rb\n");
 }
 
-void	ft_rr(t_list **stack_a, t_list **stack_b)
+void	ft_rr(t_list **stack_a, t_list **stack_b, int i)
 {
 	ft_ra(stack_a, 0);
 	ft_rb(stack_b, 0);
-	ft_putstr("rr\n");
+	if (i == 1)
+		ft_putstr("rr\n");
 }

@@ -6,7 +6,7 @@
 /*   By: moudrib <moudrib@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/03 15:46:40 by moudrib           #+#    #+#             */
-/*   Updated: 2023/02/12 01:12:32 by moudrib          ###   ########.fr       */
+/*   Updated: 2023/02/27 21:41:38 by moudrib          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,22 +85,17 @@ ssize_t	ft_atoi(const char *str)
 	return (res * sign);
 }
 
+/*This function checks if the argument is a valid number*/
 int	ft_isdigit(char *str)
 {
 	int	i;
 
 	i = 0;
 	if (str[i] && (str[i] == '-' || str[i] == '+'))
-	{
-		i++;
-		if (!str[i])
+		if (!str[++i])
 			return (0);
-	}
 	while (str[i])
-	{
-		if (!(str[i] >= '0' && str[i] <= '9'))
+		if (!(str[i] >= '0' && str[i++] <= '9'))
 			return (0);
-		i++;
-	}
 	return (1);
 }

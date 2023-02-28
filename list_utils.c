@@ -6,7 +6,7 @@
 /*   By: moudrib <moudrib@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/06 11:35:06 by moudrib           #+#    #+#             */
-/*   Updated: 2023/02/15 12:01:29 by moudrib          ###   ########.fr       */
+/*   Updated: 2023/02/27 13:48:18 by moudrib          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,14 +41,14 @@ t_list	*ft_lstlast(t_list *head)
 
 void	ft_lstadd_back(t_list **head, t_list *new)
 {
-	t_list	*end;
+	t_list	*tmp;
 
 	if (!*head || !head)
 		*head = new;
 	else
 	{
-		end = ft_lstlast(*head);
-		end->next = new;
+		tmp = ft_lstlast(*head);
+		tmp->next = new;
 	}
 }
 
@@ -56,9 +56,9 @@ void	*ft_destroy_list(t_list **head)
 {
 	t_list	*tmp;
 
-	tmp = *head;
-	if (!head || !*head || !tmp)
+	if (!head || !*head)
 		return (0);
+	tmp = *head;
 	while (tmp)
 	{
 		tmp = (*head)->next;
@@ -68,7 +68,7 @@ void	*ft_destroy_list(t_list **head)
 	return (0);
 }
 
-void	ft_sort_index(t_list *stack_a)
+void	ft_sort_rank(t_list *stack_a)
 {
 	int		i;
 	t_list	*tmp;
